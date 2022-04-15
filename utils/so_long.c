@@ -6,7 +6,7 @@
 /*   By: qbonvin <qbonvin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/02 13:59:06 by qbonvin           #+#    #+#             */
-/*   Updated: 2022/04/15 16:10:41 by qbonvin          ###   ########.fr       */
+/*   Updated: 2022/04/15 17:06:45 by qbonvin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,8 +29,6 @@ void	start_so_long(char *map)
 	if (save == 0)
 		save = ft_strdup("");
 	fd = open(map, O_RDONLY);
-		//printf("fd = %d", fd);
-	if(fd < 0)
 	if (!check_name_of_map(map))
 		error("not a map <.ber>");
 	start_read_map(fd, &save);

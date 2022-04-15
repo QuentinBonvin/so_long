@@ -6,7 +6,7 @@
 /*   By: qbonvin <qbonvin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/04 16:19:37 by qbonvin           #+#    #+#             */
-/*   Updated: 2022/04/15 16:16:18 by qbonvin          ###   ########.fr       */
+/*   Updated: 2022/04/15 17:06:59 by qbonvin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,7 @@ void	start_read_map(int fd, char **map)
 			check_last_line(map, line, width);
 			line = get_next_line(fd);
 		}
-		printf("%c\n", *map[width - 1]);
+		//printf("%c\n", *map[width - 1]);
 		check_char_on_map(map);
 		check_if_valid_map(map);
 		start_windows(width, height, map);
