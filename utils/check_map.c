@@ -6,7 +6,7 @@
 /*   By: qbonvin <qbonvin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/04 15:05:33 by qbonvin           #+#    #+#             */
-/*   Updated: 2022/04/07 14:36:16 by qbonvin          ###   ########.fr       */
+/*   Updated: 2022/04/13 16:15:09 by qbonvin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,9 +49,9 @@ void	check_last_line(char **map, char *line, int width)
 		last_char += 1;
 	if (width != last_char)
 	{
-		//if (map == NULL)
-			//free(map);
 		error("map not rectangular");
+		free_ptr(map);
+		exit(0);
 	}
 }
 
@@ -67,9 +67,9 @@ void	check_border_left_and_right(char **map, char *line, int width)
 	{
 		if (line[0] != '1' || line[width - 1] != '1')
 		{
-			if (map == NULL)
-				free(map);
 			error("map isn't close in check_border_left\n");
+			free_ptr(map);
+			exit(0);
 		}
 		i++;
 	}
