@@ -10,7 +10,7 @@
             "request": "launch",
             "program": "/Users/qbonvin/CURSUS42/so_long/so_long",
             "args": [
-                "../maps/maps.ber"
+                "../maps/maps_error/maps_not_rectangle.ber"
             ],
             "stopAtEntry": false,
             "cwd": "${fileDirname}",

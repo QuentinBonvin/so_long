@@ -6,7 +6,7 @@
 /*   By: qbonvin <qbonvin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/07 15:03:40 by qbonvin           #+#    #+#             */
-/*   Updated: 2022/04/14 14:30:16 by qbonvin          ###   ########.fr       */
+/*   Updated: 2022/04/20 14:14:17 by qbonvin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,21 +14,21 @@
 
 void	init_player_position(t_maps *maps)
 {
-	set_static_items(maps, "./img/mario.xpm", 'P');
+	load_sprit(maps, "./img/player.xpm", 'P');
 	player_position(maps);
 }
 
-void start_map(t_maps *maps)
+void	start_map(t_maps *maps)
 {
-    set_static_items(maps, "./img/waaal.xpm", '1');
-    set_static_items(maps, "./img/ground.xpm", '0');
-    set_static_items(maps, "./img/mushroom.xpm", 'C');
-    set_static_items(maps, "./img/mario.xpm", 'P');
+	load_sprit(maps, "./img/wall.xpm", '1');
+	load_sprit(maps, "./img/ground.xpm", '0');
+	load_sprit(maps, "./img/coin.xpm", 'C');
+	load_sprit(maps, "./img/exit.xpm", 'E');
 	init_player_position(maps);
 	count_coin(maps);
 }
 
-void    set_static_items(t_maps *maps, char *tile, int c)
+void	load_sprit(t_maps *maps, char *tile, int c)
 {
 	int	i;
 	int	x;
@@ -39,9 +39,9 @@ void    set_static_items(t_maps *maps, char *tile, int c)
 	i = -1;
 	while (maps->y > ++y)
 	{
-		while ((maps->maps)[++i] && maps->x > ++x)
+		while (maps->maps[++i] && maps->x > ++x)
 		{
-			if ((maps->maps)[i] == c)
+			if (maps->maps[i] == c)
 				init_tile(tile, x * 32, y * 32, maps);
 		}
 		x = -1;

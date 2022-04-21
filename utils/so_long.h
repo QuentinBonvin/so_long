@@ -6,7 +6,7 @@
 /*   By: qbonvin <qbonvin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/02 14:27:58 by qbonvin           #+#    #+#             */
-/*   Updated: 2022/04/14 14:40:39 by qbonvin          ###   ########.fr       */
+/*   Updated: 2022/04/20 16:47:14 by qbonvin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,14 +22,10 @@
 # define KEY_UP 126
 # define KEY_DOWN 125
 # define TILE_SIZE 32
-
-typedef struct s_img
-{
-	void	*wall;
-	void	*player;
-	void	*collectible;
-	void	*exit;
-}	t_img;
+# define KEY_W 13
+# define KEY_A 0
+# define KEY_S 1
+# define KEY_D 2
 
 typedef struct s_player
 {
@@ -40,7 +36,6 @@ typedef struct s_player
 
 typedef struct s_maps
 {
-	t_img		*img;
 	t_player	*player;
 	void		*mlx;
 	void		*mlx_windows;
@@ -48,6 +43,7 @@ typedef struct s_maps
 	int			y;
 	char		*maps;
 	int			coin;
+	int			step;
 }	t_maps;
 
 /**********
@@ -74,12 +70,12 @@ void	free_ptr(char **ptr);
 void	error(char *str);
 int		start_windows(int width, int height, char **map);
 void	start_map(t_maps *maps);
-void	set_static_items(t_maps *maps, char *tile, int c);
+void	load_sprit(t_maps *maps, char *tile, int c);
 void	init_tile(char *path, int x, int y, t_maps *maps);
 void	set_player(t_maps *maps, int c);
 void	count_coin(t_maps *maps);
 int		ft_close(t_maps *maps);
-
-
+void	count_move(t_maps *maps);
+void	take_coin(int position, t_maps *maps);
 
 #endif

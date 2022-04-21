@@ -6,7 +6,7 @@
 /*   By: qbonvin <qbonvin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/04 13:30:59 by qbonvin           #+#    #+#             */
-/*   Updated: 2022/04/07 13:23:19 by qbonvin          ###   ########.fr       */
+/*   Updated: 2022/04/19 15:34:40 by qbonvin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,4 +39,16 @@ void	free_ptr(char **ptr)
 		free(*ptr);
 		*ptr = NULL;
 	}
+}
+
+void	count_move(t_maps *maps)
+{
+	maps->step += 1;
+	ft_printf("move %d\n", maps->step);
+}
+
+void	take_coin(int position, t_maps *maps)
+{
+	if (maps->maps[position] == 'C' && maps->coin > 0)
+		maps->coin--;
 }

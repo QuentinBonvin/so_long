@@ -6,7 +6,7 @@
 #    By: qbonvin <qbonvin@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/04/04 15:05:41 by qbonvin           #+#    #+#              #
-#    Updated: 2022/04/14 15:15:57 by qbonvin          ###   ########.fr        #
+#    Updated: 2022/04/20 11:41:35 by qbonvin          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -28,9 +28,9 @@ LIB = -L ./libft -lft -L ./mlx -lmlx
 all : ${NAME}
 
 ${NAME} : ${OBJ}
-	make -C ${LIBFT}
-	make -C ${MLX}
-	${CC} ${CFLAGS} ${MLXLINK} -o ${RUN} ${OBJ} ${LIB}
+	@make -C ${LIBFT}
+	@make -C ${MLX}
+	@${CC} ${CFLAGS} ${MLXLINK} -o ${RUN} ${OBJ} ${LIB}
 
 clean :
 	rm -rf ${OBJ}

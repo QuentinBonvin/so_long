@@ -6,7 +6,7 @@
 /*   By: qbonvin <qbonvin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/04 16:19:37 by qbonvin           #+#    #+#             */
-/*   Updated: 2022/04/15 17:06:59 by qbonvin          ###   ########.fr       */
+/*   Updated: 2022/04/20 16:50:13 by qbonvin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ void	start_read_map(int fd, char **map)
 	char	*line;
 
 	if (fd < 0)
-		error("Impossible to opening file");
+		error("Impossible to opening file\n");
 	else
 	{
 		height = 0;
@@ -32,7 +32,7 @@ void	start_read_map(int fd, char **map)
 			check_last_line(map, line, width);
 			line = get_next_line(fd);
 		}
-		//printf("%c\n", *map[width - 1]);
+		//printf("%s", *map[]);
 		check_char_on_map(map);
 		check_if_valid_map(map);
 		start_windows(width, height, map);
@@ -42,46 +42,46 @@ void	start_read_map(int fd, char **map)
 
 int	start_windows(int width, int height, char **map)
 {
-	t_maps *maps;
+	t_maps	*maps;
+
 	maps = malloc(sizeof(t_maps));
 	maps->player = malloc(sizeof(t_player));
 	maps->maps = *map;
 	maps->x = width;
 	maps->y = height;
 	maps->mlx = mlx_init();
-	maps->mlx_windows = mlx_new_window(maps->mlx, maps->x * 32, maps->y * 32, "./so_long");
+	maps->mlx_windows = mlx_new_window(maps->mlx, maps->x * 32, maps->y * 32,
+			"./so_long");
 	start_map(maps);
-	//printf("nombre de coin = %d\n", maps->coin);
+	maps->step = 0;
 	mlx_loop_hook(maps->mlx, init_event, maps);
-	printf("position_x = %d", maps->player->position_x);
 	mlx_loop(maps->mlx);
 	free(maps);
-	maps = NULL;
 	free(maps->player);
-	maps->player = NULL;
-	return(0);
+	return (0);
 }
 
 int	init_event(t_maps *maps)
 {
 	mlx_hook(maps->mlx_windows, 2, 1L << 0, key_event, maps);
-	//mlx_hook(maps->mlx_windows, 2, 0L << 0, ft_close, maps);
+	mlx_hook(maps->mlx_windows, 17, 1L << 0, ft_close, maps);
 	return (0);
 }
 
 int	key_event(int key, t_maps *maps)
 {
-	set_static_items(maps, "./img/ground.xpm", '0');
-	init_tile("./img/ground.xpm", maps->player->position_x, maps->player->position_y, maps);
+	load_sprit(maps, "./img/ground.xpm", '0');
+	init_tile("./img/ground.xpm", maps->player->position_x,
+		maps->player->position_y, maps);
 	if (key == KEY_ESC)
 		ft_close(maps);
-	if (key == KEY_RIGHT)
+	if (key == KEY_RIGHT || key == KEY_D)
 		move_right(maps);
-	if (key == KEY_LEFT)
+	if (key == KEY_LEFT || key == KEY_A)
 		move_left(maps);
-	if (key == KEY_UP)
+	if (key == KEY_UP || key == KEY_W)
 		move_up(maps);
-	if (key == KEY_DOWN)
+	if (key == KEY_DOWN || key == KEY_S)
 		move_down(maps);
 	return (0);
 }
