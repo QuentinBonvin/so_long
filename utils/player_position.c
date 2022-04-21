@@ -6,7 +6,7 @@
 /*   By: qbonvin <qbonvin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/12 10:05:25 by qbonvin           #+#    #+#             */
-/*   Updated: 2022/04/19 14:05:18 by qbonvin          ###   ########.fr       */
+/*   Updated: 2022/04/21 10:08:52 by qbonvin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,8 +29,8 @@ void	player_position(t_maps *maps)
 		{
 			if (maps->maps[actual] == 'P')
 			{
-				maps->player->position_x = x * TILE_SIZE;
-				maps->player->position_y = y * TILE_SIZE;
+				maps->player->position_x = x * 32;
+				maps->player->position_y = y * 32;
 				maps->player->position_actual = actual;
 			}
 		}

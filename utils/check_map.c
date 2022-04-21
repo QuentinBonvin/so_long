@@ -6,7 +6,7 @@
 /*   By: qbonvin <qbonvin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/04 15:05:33 by qbonvin           #+#    #+#             */
-/*   Updated: 2022/04/20 16:57:55 by qbonvin          ###   ########.fr       */
+/*   Updated: 2022/04/21 09:38:31 by qbonvin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,7 +43,7 @@ void	check_last_line(char **map, char *line, int width)
 {
 	int	last_char;
 
-	last_char = (int)ft_strlen(line) - 1;
+	last_char = ft_strlen(line) - 1;
 	check_border_left_and_right(map, line, width);
 	if (line[last_char] != '\n')
 		last_char += 1;

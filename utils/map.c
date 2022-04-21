@@ -6,7 +6,7 @@
 /*   By: qbonvin <qbonvin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/04 16:19:37 by qbonvin           #+#    #+#             */
-/*   Updated: 2022/04/20 16:50:13 by qbonvin          ###   ########.fr       */
+/*   Updated: 2022/04/21 09:52:25 by qbonvin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,6 @@ void	start_read_map(int fd, char **map)
 			check_last_line(map, line, width);
 			line = get_next_line(fd);
 		}
-		//printf("%s", *map[]);
 		check_char_on_map(map);
 		check_if_valid_map(map);
 		start_windows(width, height, map);
@@ -71,7 +70,7 @@ int	init_event(t_maps *maps)
 int	key_event(int key, t_maps *maps)
 {
 	load_sprit(maps, "./img/ground.xpm", '0');
-	init_tile("./img/ground.xpm", maps->player->position_x,
+	init_sprit("./img/ground.xpm", maps->player->position_x,
 		maps->player->position_y, maps);
 	if (key == KEY_ESC)
 		ft_close(maps);

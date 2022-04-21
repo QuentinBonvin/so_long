@@ -6,7 +6,7 @@
 /*   By: qbonvin <qbonvin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/12 10:40:46 by qbonvin           #+#    #+#             */
-/*   Updated: 2022/04/20 13:32:51 by qbonvin          ###   ########.fr       */
+/*   Updated: 2022/04/21 09:50:08 by qbonvin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,7 @@ void	move_right(t_maps *maps)
 		maps->player->position_x += 32;
 		player_position(maps);
 	}
-	init_tile("./img/player.xpm", maps->player->position_x,
+	init_sprit("./img/player.xpm", maps->player->position_x,
 		maps->player->position_y, maps);
 }
 
@@ -56,7 +56,7 @@ void	move_left(t_maps *maps)
 		maps->player->position_x += 32;
 		player_position(maps);
 	}
-	init_tile("./img/player.xpm", maps->player->position_x,
+	init_sprit("./img/player.xpm", maps->player->position_x,
 		maps->player->position_y, maps);
 }
 
@@ -80,7 +80,7 @@ void	move_up(t_maps *maps)
 		maps->player->position_y -= 32;
 		player_position(maps);
 	}
-	init_tile("./img/player.xpm", maps->player->position_x,
+	init_sprit("./img/player.xpm", maps->player->position_x,
 		maps->player->position_y, maps);
 }
 
@@ -104,7 +104,7 @@ void	move_down(t_maps *maps)
 		maps->player->position_y += 32;
 		player_position(maps);
 	}
-	init_tile("./img/player.xpm", maps->player->position_x,
+	init_sprit("./img/player.xpm", maps->player->position_x,
 		maps->player->position_y, maps);
 }
 

@@ -6,7 +6,7 @@
 /*   By: qbonvin <qbonvin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/02 14:27:58 by qbonvin           #+#    #+#             */
-/*   Updated: 2022/04/20 16:47:14 by qbonvin          ###   ########.fr       */
+/*   Updated: 2022/04/21 10:08:34 by qbonvin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,6 @@
 # define KEY_LEFT 123
 # define KEY_UP 126
 # define KEY_DOWN 125
-# define TILE_SIZE 32
 # define KEY_W 13
 # define KEY_A 0
 # define KEY_S 1
@@ -70,9 +69,8 @@ void	free_ptr(char **ptr);
 void	error(char *str);
 int		start_windows(int width, int height, char **map);
 void	start_map(t_maps *maps);
-void	load_sprit(t_maps *maps, char *tile, int c);
-void	init_tile(char *path, int x, int y, t_maps *maps);
-void	set_player(t_maps *maps, int c);
+void	load_sprit(t_maps *maps, char *sprit, int c);
+void	init_sprit(char *sprit, int x, int y, t_maps *maps);
 void	count_coin(t_maps *maps);
 int		ft_close(t_maps *maps);
 void	count_move(t_maps *maps);
