@@ -6,7 +6,7 @@
 /*   By: qbonvin <qbonvin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/12 10:40:46 by qbonvin           #+#    #+#             */
-/*   Updated: 2022/04/25 10:03:09 by qbonvin          ###   ########.fr       */
+/*   Updated: 2022/04/25 11:01:59 by qbonvin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,9 @@ void	move_right(t_maps *maps)
 	count_move(maps);
 	if (next_sprit == 'E' && maps->coin == 0)
 		ft_close(maps);
+	load_sprit(maps, "./img/ground.xpm", '0');
+	init_sprit("./img/ground.xpm", maps->player->position_x,
+		maps->player->position_y, maps);
 	if (next_sprit != '1' && next_sprit != 'E')
 	{
 		take_coin(next_position, maps);
@@ -48,6 +51,9 @@ void	move_left(t_maps *maps)
 	count_move(maps);
 	if (next_sprit == 'E' && maps->coin == 0)
 		ft_close(maps);
+	load_sprit(maps, "./img/ground.xpm", '0');
+	init_sprit("./img/ground.xpm", maps->player->position_x,
+		maps->player->position_y, maps);
 	if (next_sprit != '1' && next_sprit != 'E')
 	{
 		take_coin(next_position, maps);
@@ -72,6 +78,9 @@ void	move_up(t_maps *maps)
 	count_move(maps);
 	if (next_sprit == 'E' && maps->coin == 0)
 		ft_close(maps);
+	load_sprit(maps, "./img/ground.xpm", '0');
+	init_sprit("./img/ground.xpm", maps->player->position_x,
+		maps->player->position_y, maps);
 	if (next_sprit != '1' && next_sprit != 'E')
 	{
 		take_coin(next_position, maps);
@@ -96,6 +105,9 @@ void	move_down(t_maps *maps)
 	count_move(maps);
 	if (next_sprit == 'E' && maps->coin == 0)
 		ft_close(maps);
+	load_sprit(maps, "./img/ground.xpm", '0');
+	init_sprit("./img/ground.xpm", maps->player->position_x,
+		maps->player->position_y, maps);
 	if (next_sprit != '1' && next_sprit != 'E')
 	{
 		take_coin(next_position, maps);

@@ -6,7 +6,7 @@
 /*   By: qbonvin <qbonvin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/04 16:19:37 by qbonvin           #+#    #+#             */
-/*   Updated: 2022/04/25 10:11:21 by qbonvin          ###   ########.fr       */
+/*   Updated: 2022/04/25 11:03:40 by qbonvin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,9 +70,6 @@ int	init_event(t_maps *maps)
 
 int	key_event(int key, t_maps *maps)
 {
-	load_sprit(maps, "./img/ground.xpm", '0');
-	init_sprit("./img/ground.xpm", maps->player->position_x,
-		maps->player->position_y, maps);
 	if (key == KEY_ESC)
 		ft_close(maps);
 	if (key == KEY_RIGHT || key == KEY_D)
