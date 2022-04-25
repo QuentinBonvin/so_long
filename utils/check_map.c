@@ -6,7 +6,7 @@
 /*   By: qbonvin <qbonvin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/04 15:05:33 by qbonvin           #+#    #+#             */
-/*   Updated: 2022/04/25 09:51:46 by qbonvin          ###   ########.fr       */
+/*   Updated: 2022/04/25 10:39:21 by qbonvin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,7 +74,7 @@ int	check_char_on_map(char **map)
 		else if ((*map)[i] == 'P')
 			player++;
 		if (player > 1)
-			error("error\nthere is not only 1 player");
+			error("error\nthere is not only 1 player\n");
 		i++;
 	}
 	return (1);
