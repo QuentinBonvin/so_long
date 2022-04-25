@@ -6,7 +6,7 @@
 /*   By: qbonvin <qbonvin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/04 16:19:37 by qbonvin           #+#    #+#             */
-/*   Updated: 2022/04/21 17:03:53 by qbonvin          ###   ########.fr       */
+/*   Updated: 2022/04/25 10:11:21 by qbonvin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,7 @@ void	start_read_map(int fd, char **map)
 		}
 		check_char_on_map(map);
 		check_if_valid_map(map);
-		check_border_top_and_bot(map,width);
+		check_border_top_and_bot(map, width);
 		start_windows(width, height, map);
 	}
 	free_ptr(map);
@@ -70,38 +70,20 @@ int	init_event(t_maps *maps)
 
 int	key_event(int key, t_maps *maps)
 {
-
+	load_sprit(maps, "./img/ground.xpm", '0');
+	init_sprit("./img/ground.xpm", maps->player->position_x,
+		maps->player->position_y, maps);
 	if (key == KEY_ESC)
 		ft_close(maps);
 	if (key == KEY_RIGHT || key == KEY_D)
-	{
-		load_sprit(maps, "./img/ground.xpm", '0');
-		init_sprit("./img/ground.xpm", maps->player->position_x,
-			maps->player->position_y, maps);
 		move_right(maps);
-	}
 	if (key == KEY_LEFT || key == KEY_A)
-	{
-		load_sprit(maps, "./img/ground.xpm", '0');
-		init_sprit("./img/ground.xpm", maps->player->position_x,
-			maps->player->position_y, maps);
 		move_left(maps);
-	}
 	if (key == KEY_UP || key == KEY_W)
-	{
-		load_sprit(maps, "./img/ground.xpm", '0');
-		init_sprit("./img/ground.xpm", maps->player->position_x,
-			maps->player->position_y, maps);
 		move_up(maps);
-	}
 	if (key == KEY_DOWN || key == KEY_S)
-	{
-		load_sprit(maps, "./img/ground.xpm", '0');
-		init_sprit("./img/ground.xpm", maps->player->position_x,
-			maps->player->position_y, maps);
 		move_down(maps);
-	}
-	return (0);
+	return (key);
 }
 
 int	ft_close(t_maps *maps)

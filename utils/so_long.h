@@ -6,7 +6,7 @@
 /*   By: qbonvin <qbonvin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/02 14:27:58 by qbonvin           #+#    #+#             */
-/*   Updated: 2022/04/21 16:26:50 by qbonvin          ###   ########.fr       */
+/*   Updated: 2022/04/25 09:25:37 by qbonvin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -76,6 +76,5 @@ int		ft_close(t_maps *maps);
 void	count_move(t_maps *maps);
 void	take_coin(int position, t_maps *maps);
 void	check_border_top_and_bot(char **map, int width);
-
 
 #endif

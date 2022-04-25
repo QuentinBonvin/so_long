@@ -6,7 +6,7 @@
 /*   By: qbonvin <qbonvin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/04 15:05:33 by qbonvin           #+#    #+#             */
-/*   Updated: 2022/04/21 17:03:45 by qbonvin          ###   ########.fr       */
+/*   Updated: 2022/04/25 09:51:46 by qbonvin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,7 +45,6 @@ void	check_last_line(char **map, char *line, int width)
 
 	last_char = ft_strlen(line) - 1;
 	check_border_left_and_right(map, line, width);
-	//check_border_top_and_bot(map, width);
 	if (line[last_char] != '\n')
 		last_char += 1;
 	if (width != last_char)
@@ -53,42 +52,6 @@ void	check_last_line(char **map, char *line, int width)
 		error("error\nmap not rectangular\n");
 		free_ptr(map);
 		exit(0);
-	}
-}
-
-/*******
- * check if the border left and right are a '1'
- *******/
-void	check_border_left_and_right(char **map, char *line, int width)
-{
-	int	i;
-
-	i = 0;
-	while (i < width)
-	{
-		if (line[0] != '1' || line[width - 1] != '1')
-		{
-			error("error\nmap not close\n");
-			free_ptr(map);
-			exit(0);
-		}
-		i++;
-	}
-}
-
-void	check_border_top_and_bot(char **map, int width)
-{
-	int		i;
-	int		j;
-
-	i = -1;
-	j = ft_strlen(*map) - 1;
-	while (++i < width)
-	{
-		if ((*map)[i] != '1' || (*map)[j--] != '1')
-		{
-			error("Error\nTest top and bot\n");
-		}
 	}
 }
 
@@ -110,8 +73,8 @@ int	check_char_on_map(char **map)
 			error("error\ninvalid char on the map\n");
 		else if ((*map)[i] == 'P')
 			player++;
-			if (player > 1)
-				error("error\nthere is not only 1 player");
+		if (player > 1)
+			error("error\nthere is not only 1 player");
 		i++;
 	}
 	return (1);
